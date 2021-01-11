@@ -1,0 +1,10 @@
+Frontend:
+update - 08/01/21:
+RES  - Babel nodemon crah
+RES  - localhost port not responding
+RES - Git bash not upload code on GitHub
+  - graphical bug sidebar
+  - CartScreen bug (not show buttuon "cerca il negozio"
+  - Bug image in ProductScreen (line 58)
+  - Shopping Cart not view
+  - double "1" in Qty (CartScreen)
