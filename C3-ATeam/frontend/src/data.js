@@ -8,7 +8,8 @@ export default {
         price: 50,
         brand: 'Mike',
         rating: 4.5,
-        numReiews: 10
+        numReiews: 10,
+        countInStock: 10,
     },
     {
         _id: '2',
@@ -17,7 +18,8 @@ export default {
         price: 40,
         brand: 'Abibas',
         rating: 4.0,
-        numReiews: 13
+        numReiews: 13,
+        countInStock: 10,
     },
     {
         _id: '3',
@@ -26,7 +28,8 @@ export default {
         price: 35,
         brand: 'Lacaste',
         rating: 4.5,
-        numReiews: 8
+        numReiews: 8,
+        countInStock: 10,
     },
     {
         _id: '4',
@@ -35,7 +38,8 @@ export default {
         price: 20,
         brand: 'Guddi',
         rating: 5,
-        numReiews: 22
+        numReiews: 22,
+        countInStock: 10,
     },
 
 ]
