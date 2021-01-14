@@ -4,6 +4,8 @@ import './App.css';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import SigniSncreen from './screens/SigninScreen';
+
 
 function App() {
 
@@ -27,6 +29,7 @@ const closeMenu = () => {
             </div>
             <div className="header-links">
                 <a href="cart.html">Cart</a>
+                <Link to="/signin"></Link>
                 <a href="signin.html">Sign In</a>
             </div>
         </header>
@@ -48,7 +51,8 @@ const closeMenu = () => {
 
         <main className="main">
             <div className="content">
-              <Route path="/products/:id" component={ProductScreen} />
+                <Route path="/signin" component={SigniSncreen} />
+                <Route path="/products/:id" component={ProductScreen} />
               <Route path="/cart/:id?" component={CartScreen} />
               <Route path="/" exact={true} component={HomeScreen} />
 
@@ -57,7 +61,7 @@ const closeMenu = () => {
             </div>
         </main>
         <footer className="footer">
-            Tutti i diritti sono pizze
+            Centro Commerciale Conero - Ancona Corso Garibaldi
         </footer>
     </div>
     </BrowserRouter>

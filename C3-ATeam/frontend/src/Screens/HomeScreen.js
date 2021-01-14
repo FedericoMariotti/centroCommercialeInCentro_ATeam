@@ -6,9 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import Axios from 'axios'; //richieste XMLHttp dal browser e node
 import { listProducts } from '../actions/productAction';
 
-
-
 function HomeScreen (props){
+
 const productList = useSelector(state => state.productList);
 const { product, loading, error} = productList;
 const dispatch = useDispatch();
