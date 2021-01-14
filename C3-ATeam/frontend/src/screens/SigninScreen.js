@@ -2,35 +2,50 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import e from 'express';
+import { signin } from '../actions/userActions';
 
 function SigninScreen(props) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const userSignin = useSelector(state=>state.userSignin);
+    const {loading, userInfo, error} = userSignin;
     const dispatch = useDispatch();
+
     useEffect(() => {
+        if(userInfo){
+            props.history.push("/");
+        }
         return() => {
 
         };
-    }, []);
+    }, [userInfo]);
 
     const submitHandler = (e) =>{
         e.preventDefault();
+        dispatch(signin(email, password));
+
     }
 
     return <div className="form">
         <form onSubmit={submitHandler}>
             <ul className="form-container">
                 <li>
-                    <label for="email">
+                    <h2>Sign-In</h2>
+                </li>
+                <li>
+                    {loading && <div>Loading...</div>}
+                    {error && <div>{error}</div>}
+                </li>
+                <li>
+                    <label htmlFor="email">
                         Email
                     </label>
                     <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}>
                     </input>
                     </li>
                     <li>
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <input type="password" id="password" name="password" onChange={(e)=>setPassword(e.target.value)}>
                         </input>
                     </li>
@@ -41,7 +56,7 @@ function SigninScreen(props) {
                         Nuovo in CC-Conero?
                     </li>
                     <li>
-                      <Link to="/register" className="button full-with">Crea un nuovo account</Link>
+                      <Link to="/register" className="button secondary text-center">Crea un nuovo account</Link>
                     </li>
             </ul>
         </form>

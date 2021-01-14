@@ -1,11 +1,15 @@
 import express from 'express';
-//import data from '../C3-ATeam/frontend/src/data';
 import data from './data';
 var cors = require('cors');
 import config from '/config';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import userRoute from './routes/userRoute';
+import bodyParser from 'body-parser';
+import fileUpload from 'express-fileupload';
+import path from 'path';
+import productRoute from './routes/userRoute';
+import orderRoute from './routes/orderRoute';
 
 
 dotenv.config();
@@ -18,6 +22,7 @@ mongoose.connect(mongodbUrl, {
 
 
 const app = express();
+app.use(bodyParser.json());
 var cors = require('cors');
 
 app.use("/apu/users", userRoute);
