@@ -1,0 +1,111 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import e from 'express';
+import { signin } from '../actions/userActions';
+
+function ProductsScreen(props) {
+
+    const [name, setName] = useState('');
+    const [price, setPrice] = useState('');
+    const [image, setImage] = useState('');
+    const [brand, setBrand] = useState('');
+    const [category, setCategory] = useState('');
+    const [countInStock, setCountInStock] = useState('');
+    const [description, setDescription] = useState('');
+    const [rating, setRating] = useState('');
+    const [numReviews, setNumReview] = useState('');
+    const productSave = useSelector(state=>state.productSave);
+    const {loading: loadignSave, successSave, error: errorSave} = productSave;
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+
+        return() => {
+
+        };
+    }, [userInfo]);
+
+    const submitHandler = (e) =>{
+        e.preventDefault();
+        dispatch(saveProduct({
+            name, price, image, brand, category, 
+            countInStock, description, rating, numReviews
+        }));
+
+    }
+
+    return <div className="form">
+        <form onSubmit={submitHandler}>
+            <ul className="form-container">
+                <li>
+                    <h2>Crea prodotto</h2>
+                </li>
+                <li>
+                    {loading && <div>Loading...</div>}
+                    {error && <div>{error}</div>}
+                </li>
+                <li>
+                    <label htmlFor="name">
+                        Nome
+                    </label>
+                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}>
+                    </input>
+                    </li>
+                    <li>
+                    <label htmlFor="name">
+                        Prezzo
+                    </label>
+                    <input type="text" name="price" id="price" onChange={(e) => setPrice(e.target.value)}>
+                    </input>
+                    </li>
+                    <li>
+                    <label htmlFor="name">
+                        Immagine
+                    </label>
+                    <input type="text" name="image" id="image" onChange={(e) => setImage(e.target.value)}>
+                    </input>
+                    </li>
+                    <li>
+                    <label htmlFor="name">
+                        Brand
+                    </label>
+                    <input type="text" name="brand" id="brand" onChange={(e) => setBrand(e.target.value)}>
+                    </input>
+                    </li>
+                    <li>
+                    <label htmlFor="name">
+                        Categoria
+                    </label>
+                    <input type="text" name="category" id="category" onChange={(e) => setCategory(e.target.value)}>
+                    </input>
+                    </li>
+                    <li>
+                    <label htmlFor="name">
+                        Valutazioni
+                    </label>
+                    <input type="text" name="rating" id="rating" onChange={(e) => setRating(e.target.value)}>
+                    </input>
+                    </li>
+                    <li>
+                    <label htmlFor="name">
+                        Numero recenzioni
+                    </label>
+                    <input type="text" name="nunumReviewsm" id="numReviews" onChange={(e) => setNumReviews(e.target.value)}>
+                    </input>
+                    </li>
+                    <li>
+                    <label htmlFor="name">
+                        Descrizione
+                    </label>
+                    <textarea name="description" id="description" onChange={(e) => setDescription(e.target.value)}>
+                    </textarea>
+                    </li>
+                    <li>
+                        <button type="submit" className="button primary">Crea</button>
+                    </li>
+            </ul>
+        </form>
+    </div>
+}
+export default SigninScreen;

@@ -13,6 +13,29 @@ const getToken = (user) => {
     })
 }
 
+const isAuth = (req, res, next) => {
+    const token = req.headers.authorization;
+    if (token) {
+        const onlyToken = token.slice(7, token.length);
+        jwt.verify(onlyToken, config.JWT_SECRET, (err, decode) => {
+            if (err) {
+                return res.status(401).send({ msg: 'Token non valido '});
+            }
+            req.user = token;
+            next();
+            return
+        });
+    }
+    return res.status(401).send({ msg: " Il Token non è stato fornito "});
+}
+
+const isAdmin = (req, res, next) => {
+    if (req.user && req.user.isAdmin) {
+        return next();
+    }
+    return res.status(401).send({ msg: ' Questo Token non è valido '});
+}
+
 export {
-    getToken
+    getToken, isAuth, isAdmin
 }
