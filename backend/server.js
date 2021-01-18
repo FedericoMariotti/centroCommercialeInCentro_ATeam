@@ -6,10 +6,9 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import userRoute from './routes/userRoute';
 import bodyParser from 'body-parser';
-import fileUpload from 'express-fileupload';
+import productRoute from './routes/productRoute';
 import path from 'path';
 import productRoute from './routes/userRoute';
-import orderRoute from './routes/orderRoute';
 
 
 dotenv.config();
@@ -22,22 +21,25 @@ mongoose.connect(mongodbUrl, {
 
 
 const app = express();
+//app.use(bodyParser.json());
+//var cors = require('cors');
 app.use(bodyParser.json());
-var cors = require('cors');
-
 app.use("/apu/users", userRoute);
-app.get("/api/products/:id", (req, res)=> {
+app.use("api/products", product);
+
+/* app.get("/api/products/:id", (req, res)=> {
     const productId = req.params.id;
     const product = data.products.find(x => x._id === productId);
     if(product)
-    res.send(product);
+        res.send(product);
     else 
-    res.status(404).send({ msg: "Scusa frate, non trovo il prodotto che cerchi :("})
+        res.status(404).send({ msg: "Scusa frate, non trovo il prodotto che cerchi :("})
 } );
 
 app.get("/api/products", (req, res)=> {
     res.send(data.products);
 } );
+*/
 
 app.listen(5000, () => {console.log("Server started at http://localhost:5000")} ) 
 

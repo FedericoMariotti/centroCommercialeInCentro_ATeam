@@ -5,6 +5,7 @@ import './App.css';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import ProductsScreen from '/screens/ProductsScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import SigniSncreen from './screens/SigninScreen';
 
@@ -57,6 +58,7 @@ const closeMenu = () => {
 
         <main className="main">
             <div className="content">
+                <Route path="/products" component={ProductsScreen} />
                 <Route path="/signin" component={SigniSncreen} />
                 <Route path="/register" component={RegisterScreen} />
                 <Route path="/products/:id" component={ProductScreen} />
@@ -70,7 +72,7 @@ const closeMenu = () => {
         </footer>
     </div>
     </BrowserRouter>
-    
+
     );
 }
 

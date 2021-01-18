@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import e from 'express';
 import { signin } from '../actions/userActions';
+import { saveProduct } from '../actions/productAction';
 
 function ProductsScreen(props) {
 
@@ -13,8 +14,6 @@ function ProductsScreen(props) {
     const [category, setCategory] = useState('');
     const [countInStock, setCountInStock] = useState('');
     const [description, setDescription] = useState('');
-    const [rating, setRating] = useState('');
-    const [numReviews, setNumReview] = useState('');
     const productSave = useSelector(state=>state.productSave);
     const {loading: loadignSave, successSave, error: errorSave} = productSave;
     const dispatch = useDispatch();
@@ -24,13 +23,13 @@ function ProductsScreen(props) {
         return() => {
 
         };
-    }, [userInfo]);
+    }, []);
 
     const submitHandler = (e) =>{
         e.preventDefault();
         dispatch(saveProduct({
             name, price, image, brand, category, 
-            countInStock, description, rating, numReviews
+            countInStock, description
         }));
 
     }
@@ -42,8 +41,8 @@ function ProductsScreen(props) {
                     <h2>Crea prodotto</h2>
                 </li>
                 <li>
-                    {loading && <div>Loading...</div>}
-                    {error && <div>{error}</div>}
+                    {loadignSave && <div>Loading...</div>}
+                    {errorSave && <div>{error}</div>}
                 </li>
                 <li>
                     <label htmlFor="name">
@@ -75,25 +74,19 @@ function ProductsScreen(props) {
                     </li>
                     <li>
                     <label htmlFor="name">
+                        Disponibilità di Magazzino
+                    </label>
+                    <input type="text" name="countInStock" id="countInStock" onChange={(e) => setCountInStock(e.target.value)}>
+                    </input>
+                    </li>
+                    <li>
+                    <label htmlFor="name">
                         Categoria
                     </label>
                     <input type="text" name="category" id="category" onChange={(e) => setCategory(e.target.value)}>
                     </input>
                     </li>
-                    <li>
-                    <label htmlFor="name">
-                        Valutazioni
-                    </label>
-                    <input type="text" name="rating" id="rating" onChange={(e) => setRating(e.target.value)}>
-                    </input>
-                    </li>
-                    <li>
-                    <label htmlFor="name">
-                        Numero recenzioni
-                    </label>
-                    <input type="text" name="nunumReviewsm" id="numReviews" onChange={(e) => setNumReviews(e.target.value)}>
-                    </input>
-                    </li>
+
                     <li>
                     <label htmlFor="name">
                         Descrizione
@@ -108,4 +101,4 @@ function ProductsScreen(props) {
         </form>
     </div>
 }
-export default SigninScreen;
+export default ProductsScreen;
