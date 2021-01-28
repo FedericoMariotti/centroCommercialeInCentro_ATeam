@@ -6,8 +6,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import Axios from 'axios'; //richieste XMLHttp dal browser e node
 import { listProducts } from '../actions/productAction';
 
-function HomeScreen (props){
 
+
+function HomeScreen (props){
 const productList = useSelector(state => state.productList);
 const { product, loading, error} = productList;
 const dispatch = useDispatch();
@@ -25,9 +26,9 @@ useEffect (() => {
     return () => {
         //cleanup
     };
-}, [])
+}, [dispatch])
 
-    return loading? <div>Loading....</div>:
+    return loading? <div>Loading...</div>:
     error? <div>{error}</div>:
     
     <ul className="products">

@@ -1,14 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { BrowserRouter, Link, Route} from 'react-router-dom';
 import './App.css';
-import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
-import ProductsScreen from '/screens/ProductsScreen';
+import CartScreen from './screens/CartScreen';
+import SigninScreen from './screens/SigninScreen';
+import { useSelector } from 'react-redux';
 import RegisterScreen from './screens/RegisterScreen';
-import SigniSncreen from './screens/SigninScreen';
-
 
 function App() {
 
@@ -34,21 +32,24 @@ const closeMenu = () => {
                 <Link to='/'>CC-Conero</Link>
             </div>
             <div className="header-links">
-                <a href="cart.html">Profilo</a>
+                <a href="cart.html">Riepilogo</a>
                 {
-                    userInfo ? <Link to="/profile">{userInfo.name}</Link>: 
+                    userInfo ? <Link to="/profile">{userInfo.name}</Link>:
                     <Link to="/signin">Sign-In</Link>
                 }
                 
                 <a href="signin.html">Sign-In</a>
             </div>
         </header>
-         <aside className="sidebar">
+
+
+
+        <aside className="sidebar">
             <h3> Categorie </h3>
             <button className="sidebar-close-button" onClick={closeMenu}>x</button>
             <ul>
                 <li>
-                    <a href="index.html">Pantaloni</a>
+                    <a href="index.html">Cappotti</a>
                 </li>
                 <li>
                     <a href="index.html">Maglie</a>
@@ -58,22 +59,25 @@ const closeMenu = () => {
 
         <main className="main">
             <div className="content">
-                <Route path="/products" component={ProductsScreen} />
-                <Route path="/signin" component={SigniSncreen} />
-                <Route path="/register" component={RegisterScreen} />
-                <Route path="/products/:id" component={ProductScreen} />
-                <Route path="/cart/:id?" component={CartScreen} />
-                <Route path="/" exact={true} component={HomeScreen} />
+            <Route path="/signin" component={SigninScreen} />
+            <Route path="/register" component={RegisterScreen}/>
+            <Route path="/product/:id" component={ProductScreen} />
+            <Route path="/cart/:id?" component={CartScreen} />
+            <Route path="/" exact={true} component={HomeScreen} />
+
+                
+
             </div>
         </main>
-
         <footer className="footer">
-            Centro Commerciale Conero - Ancona Corso Garibaldi
+            Tutti i diritti sono pizze
         </footer>
     </div>
     </BrowserRouter>
 
-    );
+    
+  );
+
 }
 
 export default App;

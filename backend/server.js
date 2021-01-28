@@ -1,45 +1,42 @@
 import express from 'express';
-import data from './data';
-var cors = require('cors');
-import config from '/config';
-import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import userRoute from './routes/userRoute';
 import bodyParser from 'body-parser';
-import productRoute from './routes/productRoute';
+import fileUpload from 'express-fileupload';
 import path from 'path';
-import productRoute from './routes/userRoute';
-
+import dotenv from 'dotenv';
+import userRoute from './routes/userRoute';
+import productRoute from './routes/productRoute';
+import orderRoute from './routes/orderRoute';
+import config from './config';
 
 dotenv.config();
+
 const mongodbUrl = config.MONGODB_URL;
+const port = config.PORT;
 mongoose.connect(mongodbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
-}).catch(error => console.log(error.reason));
-
+    useCreateIndex: true,
+  })
+  .catch((error) => console.log(error.reason));
 
 const app = express();
-//app.use(bodyParser.json());
-//var cors = require('cors');
-app.use(bodyParser.json());
-app.use("/apu/users", userRoute);
-app.use("api/products", product);
+var cors = require('cors');
 
-/* app.get("/api/products/:id", (req, res)=> {
+app.use(bodyParser.json());
+app.use('./api/uploads', uploadRoute);
+app.use("./api/users", userRoute);
+app.get("./api/products/:id", (req, res)=> {
     const productId = req.params.id;
     const product = data.products.find(x => x._id === productId);
     if(product)
-        res.send(product);
+    res.send(product);
     else 
-        res.status(404).send({ msg: "Scusa frate, non trovo il prodotto che cerchi :("})
+    res.status(404).send({ msg: "Scusa frate, non trovo il prodotto che cerchi :("})
 } );
 
-app.get("/api/products", (req, res)=> {
+app.get("./api/products", (req, res)=> {
     res.send(data.products);
 } );
-*/
 
-app.listen(5000, () => {console.log("Server started at http://localhost:5000")} ) 
-
+app.listen(5000, () => {console.log("Server started at http://localhost:5000")} )

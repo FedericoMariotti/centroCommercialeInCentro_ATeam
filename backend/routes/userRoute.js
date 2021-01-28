@@ -4,25 +4,6 @@ import { getToken, isAuth } from '../util';
 
 const router = express.Router();
 
-router.post('/signin', async (req, res) => {
-
-  const signinUser = await User.findOne({
-    email: req.body.email,
-    password: req.body.password,
-  });
-  if (signinUser) {
-    res.send({
-      _id: signinUser.id,
-      name: signinUser.name,
-      email: signinUser.email,
-      isAdmin: signinUser.isAdmin,
-      token: getToken(signinUser),
-    });
-  } else {
-    res.status(401).send({ message: 'Email o Password non valide' });
-  }
-});
-
 router.post('/register', async (req, res) => {
   const user = new User({
     name: req.body.name,
@@ -42,6 +23,26 @@ router.post('/register', async (req, res) => {
     res.status(401).send({ message: 'Dati non validi' });
   }
 });
+
+router.post('/signin', async (req, res) => {
+  const signinUser = await User.findOne({
+    email: req.body.email,
+    password: req.body.password,
+  });
+  if (signinUser) {
+    res.send({
+      _id: signinUser.id,
+      name: signinUser.name,
+      email: signinUser.email,
+      isAdmin: signinUser.isAdmin,
+      token: getToken(signinUser),
+    });
+  } else {
+    res.status(401).send({ message: 'Email o Password errate.' });
+  }
+});
+
+
 
 router.get('/createadmin', async (req, res) => {
   try {
