@@ -1,7 +1,6 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import Cookie from 'js-cookie';
-//troverò anche l'estensione su Chrome dev che registrano le azioni
 import { productDeleteReducer, productDetailsReducer, productListReducer, productSaveReducer } from './reducers/productReducers';
 import {cartReducer} from './reducers/cartReducers'
 import { userRegisterReducer, userSigninReducer } from './reducers/userReducer';
@@ -26,5 +25,5 @@ const store = createStore(
      initialState,
      composeEnhancer(applyMiddleware(thunk))     
 );
-//Redux
+
 export default store; 

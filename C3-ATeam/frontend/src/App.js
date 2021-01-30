@@ -10,7 +10,6 @@ import RegisterScreen from './screens/RegisterScreen';
 import ProductsScreen from './screens/ProductsScreen';
 
 function App() {
-
     const userSignin = useSelector(state=>state.userSignin);
     const {userInfo} = userSignin;
 
@@ -38,13 +37,8 @@ const closeMenu = () => {
                     userInfo ? <Link to="/profile">{userInfo.name}</Link>:
                     <Link to="/signin">Sign-In</Link>
                 }
-                
-                
             </div>
         </header>
-
-
-
         <aside className="sidebar">
             <h3> Categorie </h3>
             <button className="sidebar-close-button" onClick={closeMenu}>x</button>
@@ -66,20 +60,14 @@ const closeMenu = () => {
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
-
-                
-
             </div>
         </main>
         <footer className="footer">
-            Tutti i diritti sono pizze
+            Centro Commerciale Conero - Ancona
         </footer>
     </div>
     </BrowserRouter>
-
-    
   );
-
 }
 
 export default App;

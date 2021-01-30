@@ -1,7 +1,7 @@
-import React, { Profiler, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+//import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { signin } from '../actions/userAction';
+//import { signin } from '../actions/userAction';
 import { listProducts, saveProduct, deleteProduct } from '../actions/productAction';
 
 function ProductsScreen(props) {
@@ -18,20 +18,17 @@ function ProductsScreen(props) {
   const {loading, products, error} = productList;
   const productSave = useSelector(state => state.productSave);
   const { loading: loadingSave, success: successSave, error: errorSave } = productSave;
-
   const productDelete = useSelector(state => state.productDelete);
   const { loading: loadingDelete, success: successDelete, error: errorDelete } = productDelete;
 
   const dispatch = useDispatch();
 
- 
   useEffect(() => {
     if (successSave) {
       setModalVisible(false);
     }
     dispatch(listProducts());
     return () => {
-      //
     };
   }, [successSave, successDelete]);
 
@@ -76,7 +73,6 @@ function ProductsScreen(props) {
           {loadingSave && <div>Caricamento...</div>}
           {errorSave && <div>{errorSave}</div>}
         </li>
-        
         <li>
           <label htmlFor="name">
             Nome
@@ -84,7 +80,6 @@ function ProductsScreen(props) {
           <input type="text" name="name" value={name} id="name" onChange={(e) => setName(e.target.value)}>
           </input>
         </li>
-
         <li>
           <label htmlFor="price">
             Prezzo
@@ -92,7 +87,6 @@ function ProductsScreen(props) {
           <input type="text" name="price" value={price} id="price" onChange={(e) => setPrice(e.target.value)}>
           </input>
         </li>
-
         <li>
           <label htmlFor="image">
             Immagine
@@ -100,15 +94,13 @@ function ProductsScreen(props) {
           <input type="text" name="image" value={image} id="image" onChange={(e) => setImage(e.target.value)}>
           </input>
         </li>
-
         <li>
           <label htmlFor="brand">
-            Brand
+            Nome negozio
           </label>
           <input type="text" name="brand" value={brand} id="brand" onChange={(e) => setBrand(e.target.value)}>
           </input>
         </li>
-
         <li>
           <label htmlFor="countInStock">
             Disponibili
@@ -116,7 +108,6 @@ function ProductsScreen(props) {
           <input type="text" name="countInStock" value={countInStock} id="countInStock" onChange={(e) => setCountInStock(e.target.value)}>
           </input>
         </li>
-
         <li>
           <label htmlFor="category">
             Categoria
@@ -124,7 +115,6 @@ function ProductsScreen(props) {
           <input type="text" name="category" value={category} id="category" onChange={(e) => setCategory(e.target.value)}>
           </input>
         </li>
-
         <li>
           <label htmlFor="description">
             Descrizione
@@ -132,7 +122,6 @@ function ProductsScreen(props) {
           <textarea name="description" value={description} id="description" onChange={(e) => setDescription(e.target.value)}>
           </textarea>
         </li>
-        
         <li>
           <button type="submit" className="button primary"> {id ? "Aggiona" : "Crea"}</button>
         </li>
@@ -142,9 +131,7 @@ function ProductsScreen(props) {
       </ul>
     </form>
   </div>
-
       }
-      
       <div className="product-list">
           <table className="table">
               <thead>
@@ -176,6 +163,5 @@ function ProductsScreen(props) {
       </div>
   </div>
 
- 
 }
 export default ProductsScreen; 

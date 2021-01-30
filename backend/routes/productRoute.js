@@ -3,13 +3,12 @@ import Product from '../models/productModel';
 import { isAdmin, isAuth } from '../util';
 
 const router = express.Router();
-
 router.get("/", async(req, res) => {
 const product = await Product.find({});
 res.send(products);
 });
 
-router.post("/", async(req, res) =>{
+router.post("/", async (req, res) =>{
     const product = new Product({
         name: req.body.name,
         price: req.body.price,
@@ -27,6 +26,7 @@ router.post("/", async(req, res) =>{
     }
     return res.status(500).send({message: "Errore nella creazione del prodotto"});
 })
+
 router.put("/:id", isAuth, isAdmin, async(req, res) =>{
     const productId = req.params.id;
     const product = await Product.findById(productId);
