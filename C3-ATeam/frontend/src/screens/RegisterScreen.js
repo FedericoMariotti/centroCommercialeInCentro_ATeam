@@ -67,7 +67,7 @@ function RegisterScreen(props) {
         </li>
         <li>
           Hai già un Account?
-          <Link to="/signin">Accedi</Link>
+          <Link to="/signin">Sign-In</Link>
 
         </li>
 

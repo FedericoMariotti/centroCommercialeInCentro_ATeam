@@ -7,6 +7,7 @@ import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SigninScreen';
 import { useSelector } from 'react-redux';
 import RegisterScreen from './screens/RegisterScreen';
+import ProductsScreen from './screens/ProductsScreen';
 
 function App() {
 
@@ -32,13 +33,13 @@ const closeMenu = () => {
                 <Link to='/'>CC-Conero</Link>
             </div>
             <div className="header-links">
-                <a href="cart.html">Riepilogo</a>
+                <a href="cart">Riepilogo</a>
                 {
                     userInfo ? <Link to="/profile">{userInfo.name}</Link>:
                     <Link to="/signin">Sign-In</Link>
                 }
                 
-                <a href="signin.html">Sign-In</a>
+                
             </div>
         </header>
 
@@ -59,6 +60,7 @@ const closeMenu = () => {
 
         <main className="main">
             <div className="content">
+            <Route path="/products" component={ProductsScreen} />
             <Route path="/signin" component={SigninScreen} />
             <Route path="/register" component={RegisterScreen}/>
             <Route path="/product/:id" component={ProductScreen} />

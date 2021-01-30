@@ -38,9 +38,9 @@ function ProductScreen (props){
 
     return <div>
         <div className="back-to-result">
-            <Link to='/'>Back to result</Link>
+            <Link to='/'>Torna indietro</Link>
         </div>
-        {loadign? <div> Loading...</div>:
+        {loadign? <div> Caricamento...</div>:
         error? <div> {error} </div>:
         (
         <div className="details">
@@ -53,13 +53,13 @@ function ProductScreen (props){
                         <h4>{products.name}</h4>
                     </li>
                     <li>
-                        {products.rating} Stars ({products.numReviews}Reviews)
+                        {products.rating} Voto ({products.numReviews})
                     </li>
                     <li>
-                        Price: <b> $ {products.price}</b>
+                        Prezzo: <b> $ {products.price}</b>
                     </li>
                     <li>
-                        Description:
+                        Descrizione:
                         <div>
                             {products.description}
                         </div>
@@ -69,14 +69,14 @@ function ProductScreen (props){
             <div className="details-action">
                 <ul>
                     <li>
-                    Price: {products.price}
+                    Prezzo: {products.price}
                     </li>
                     <li>
-                    Stauts: {products.countInStock > 0? "In Stock" : "" }
+                    Stato: {products.countInStock > 0? "In Stock" : "" }
                     </li>
                     <li>
                     
-                    Qty: <select value ={qty} onChange={(e)=> { setQty(e.target.value)}}>
+                    Quantità: <select value ={qty} onChange={(e)=> { setQty(e.target.value)}}>
 
                         {[...Array(products.countInStock).keys()].map(x=>
                             <option key value={x+1}>{x+1}</option>

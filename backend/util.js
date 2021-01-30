@@ -24,12 +24,14 @@ const getToken = (user) => {
           if (err) {
             return res.status(401).send({ message: 'Token non valido' });
           }
-          req.user = token;
+          req.user = decode;
           next();
-          return;
+          return
         });
-      } 
+      } else {
         return res.status(401).send({ message: 'Token non fornito' });
+      }
+        
       };
     const isAdmin = (req, res, next) => {
       if(req.user && req.user.isAdmin) {

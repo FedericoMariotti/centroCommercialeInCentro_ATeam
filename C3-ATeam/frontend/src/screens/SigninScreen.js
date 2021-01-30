@@ -48,7 +48,7 @@ function SigninScreen(props) {
           </input>
         </li>
         <li>
-          <button type="submit" className="button primary">Sign-In</button>
+          <button type="submit" className="button primary">Accedi</button>
         </li>
         <li>
           Nuovo in Centro Commerciale Conero?
