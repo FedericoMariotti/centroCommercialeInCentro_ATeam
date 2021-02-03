@@ -49,6 +49,24 @@ const closeMenu = () => {
                 <li>
                     <a href="index.html">Maglie</a>
                 </li>
+                <li>
+                    <a href="index.html">Bar e Ristoranti</a>
+                </li>
+                <li>
+                    <a href="index.html">Farmacie</a>
+                </li>
+                <li>
+                    <a href="index.html">Cura della persona</a>
+                </li>
+                <li>
+                    <a href="index.html">Alimentari</a>
+                </li>
+                <li>
+                    <a href="index.html">Banca e ATM</a>
+                </li>
+                <li>
+                    <a href="index.html">Telefonia</a>
+                </li>
             </ul>
         </aside>
 

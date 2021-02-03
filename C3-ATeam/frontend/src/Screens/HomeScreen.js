@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import data from '../data';
 import { useSelector, useDispatch } from 'react-redux';
 
-import Axios from 'axios'; //richieste XMLHttp dal browser e node
+import axios from 'axios'; 
 import { listProducts } from '../actions/productAction';
 
 
@@ -15,14 +15,12 @@ const dispatch = useDispatch();
 
 useEffect (() => {
     dispatch(listProducts());
-  /*  const fetchData = async () => {
+/*  const fetchData = async () => {
         const {data} = await axios.get("/api/products");
-        //{data} perchè l'oggetto ritona axios propietà --> data contiene tutti i dati dei prodotti
         setProduct(data);
     }
     fetchData();
-    /*Richiamo fetchData per avere la richiesta dal server
-    Chrome dev -> XHR -> products */ 
+    */
     return () => {
         //cleanup
     };

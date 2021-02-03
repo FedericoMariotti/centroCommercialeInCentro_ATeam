@@ -16,13 +16,11 @@ function CartScreen(props){
 
     }
 
-
-    
     useEffect(() => {
-        if(productId) {
-            dispatch(addToCart(productId, qty));
+        if (productId) {
+          dispatch(addToCart(productId, qty));
         }
-    }, [dispatch]); 
+      }, [dispatch]);
     
     const checkoutHandler = () => {
         props.history.push("/signin?redirect=shipping");
@@ -83,7 +81,7 @@ function CartScreen(props){
         </div>
         <div className="cart-action">
             <h3>
-                Totale ( {cartItems.reduce((a, c) => a + c.qty, 0)} prodotti)
+                Totale ({cartItems.reduce((a, c) => a + c.qty, 0)} prodotti)
                 :
                  $ {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
             </h3>

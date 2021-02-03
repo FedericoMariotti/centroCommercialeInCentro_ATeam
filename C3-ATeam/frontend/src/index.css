@@ -1,5 +1,5 @@
 html{
-  font-size: 62.5%; /* 16px * 62.5 = 10px = 1rem */
+  font-size: 62.5%; /* di dafault è 16px * 62.5 = 10px = 1rem */
   box-sizing: border-box;
 }
 body {
@@ -20,7 +20,8 @@ button {
   height: 100%;
 }
 
-.grid-container{
+/*.grid-container è la classe nel div in index.html*/
+.grid-container{ 
   display: grid;
   grid-template-areas: 
   "header"
@@ -30,6 +31,7 @@ button {
   grid-template-rows: 5rem 1fr 5rem;
   height: 100%;
 }
+/*Ora creo le classi per header, main e footer */
 
 .header {
   grid-area: header;
@@ -38,8 +40,6 @@ button {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
-
-
 }
 
 .brand a{
@@ -47,7 +47,6 @@ button {
   font-size: 2.5rem;
   font-weight: bold;
   text-decoration: none;
-
 }
 
 .header-links a{
@@ -141,18 +140,18 @@ a:hover {
 }
 
 .sidebar{
+  border: 0.1rem #000000 solid;
+  border-radius: 1%;
   position: fixed;
-  transition: all .5se;
+  transition: all 0.5s;
   transform: translateX(-30rem);
-  width: 30rem;
-  background-color: #f0f0f0;
-  height: 100%;
-
+  width: 25rem;
+  background-color: #fffffff8;
+  height: 93.5%;
 }
 
 .sidebar.open{
   transform: translateX(0);
-
 }
 
 .sidebar-close-button {
@@ -162,7 +161,7 @@ a:hover {
   height: 3rem;
   padding: .5rem;
   font-size: 2rem;
-  padding-top: 0;
+  padding-top: 0.3rem;
   cursor: pointer;
   position: absolute;
   right: .5rem;
@@ -242,7 +241,7 @@ a:hover {
   text-align: center;
 }
 
-/*Cart*/
+/*Riepilogo (Cart)*/
 .cart{
   display: flex;
   flex-wrap: wrap;
@@ -256,7 +255,7 @@ a:hover {
 .cart-action{
   flex: 1 1 20rem;
   background-color: #f0f0f0;
-  border: 1rem #808080 solid;
+  border: 0.5rem #a7a7a7 solid;
   border-radius: 0.5rem;
   padding: 1rem;
 }
@@ -302,13 +301,14 @@ a:hover {
   font-size: 2.5rem;
   text-align: right;
 }
-/*Correzione bug nella Signin page*/
+/*Signin */
 .form {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
+
 .form-container {
   display: flex;
   flex-direction: column;
@@ -318,12 +318,14 @@ a:hover {
   border-radius: 0.5rem;
   list-style-type: none;
 }
+
 .form-container li {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
+
 input {
   padding: 1rem;
   border: 0.1rem #c0c0c0 solid;
