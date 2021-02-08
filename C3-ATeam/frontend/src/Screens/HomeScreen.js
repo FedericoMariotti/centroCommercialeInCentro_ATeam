@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import data from '../data';
 import { useSelector, useDispatch } from 'react-redux';
-
-import axios from 'axios'; 
+import Axios from 'axios'; 
 import { listProducts } from '../actions/productAction';
 
 
@@ -14,13 +13,13 @@ const { product, loading, error} = productList;
 const dispatch = useDispatch();
 
 useEffect (() => {
-    dispatch(listProducts());
-/*  const fetchData = async () => {
-        const {data} = await axios.get("/api/products");
-        setProduct(data);
+    //dispatch(listProducts());
+    const fetchData = async () => {
+        const {data} = await Axios.get("/api/products");
+        //setProduct(data);
     }
     fetchData();
-    */
+    
     return () => {
         //cleanup
     };
@@ -44,7 +43,7 @@ useEffect (() => {
                             </div>
                             <div className="product-brand">{product.brand}</div>
                             <div className="product-price">{product.price}$</div>
-                            <div className="product-rating">{product.rating}Stars ({product.numReiews})</div>
+                            <div className="product-rating">{product.rating}Stelle ({product.numReiews})</div>
 
                         </div> 
                     </li>)

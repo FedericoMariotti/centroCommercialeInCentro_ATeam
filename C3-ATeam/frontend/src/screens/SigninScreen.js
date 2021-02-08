@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signin } from '../actions/userAction';
+import Axios from 'axios'; 
 
 function SigninScreen(props) {
 
@@ -22,7 +23,17 @@ function SigninScreen(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signin(email, password));
+    //dispatch(signin(email, password));
+    const fetchData = async () => {
+      const usr = {
+          email : email,
+          password : password
+      }
+      await Axios.post("/api/users/signin", usr);
+    
+  }
+
+  fetchData();
 
   }
   return <div className="form">

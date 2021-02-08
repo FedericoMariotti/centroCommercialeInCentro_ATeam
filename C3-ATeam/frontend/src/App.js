@@ -22,6 +22,7 @@ const closeMenu = () => {
 }
 
   return (
+      
     <BrowserRouter>
     <div className="grid-container">
         <header className="header">
@@ -32,7 +33,7 @@ const closeMenu = () => {
                 <Link to='/'>CC-Conero</Link>
             </div>
             <div className="header-links">
-                <a href="cart">Riepilogo</a>
+                <a href="cart">Riepilogo </a>
                 {
                     userInfo ? <Link to="/profile">{userInfo.name}</Link>:
                     <Link to="/signin">Sign-In</Link>
@@ -69,6 +70,7 @@ const closeMenu = () => {
                 </li>
             </ul>
         </aside>
+        
 
         <main className="main">
             <div className="content">
@@ -85,6 +87,7 @@ const closeMenu = () => {
         </footer>
     </div>
     </BrowserRouter>
+    
   );
 }
 

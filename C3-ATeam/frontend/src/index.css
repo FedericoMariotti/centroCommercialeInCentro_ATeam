@@ -52,6 +52,8 @@ button {
 .header-links a{
   color: #ffffff;
   text-decoration: none;
+  padding: 0.2rem;
+
 }
 
 .header-links a:hover {
@@ -312,7 +314,7 @@ a:hover {
 .form-container {
   display: flex;
   flex-direction: column;
-  width: 32rem;
+  width: 33rem;
   padding: 2rem;
   border: 0.1rem #c0c0c0 solid;
   border-radius: 0.5rem;

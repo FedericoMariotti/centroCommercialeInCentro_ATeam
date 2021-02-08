@@ -9,7 +9,8 @@ import {
 const signin = (email, password) => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
     try {
-      const { data } = await Axios.post("/api/users/signin", { email, password });
+      const { data } = await Axios.post("/users/signin", { email, password });
+      //baseURL: 'http://localhost:5000/api/
       dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
       Cookie.set('userInfo', JSON.stringify(data));
     } catch (error) {
