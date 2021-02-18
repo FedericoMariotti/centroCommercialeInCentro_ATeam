@@ -44,6 +44,50 @@ export default {
         numReiews: 22,
         countInStock: 10
     },
+    {
+        _id: '5',
+        name: 'Maglietta nera semplice',
+        category:'Vestiti',
+        image: './images/a1.jpg',
+        price: 20,
+        brand: 'Guddi',
+        rating: 5,
+        numReiews: 22,
+        countInStock: 10
+    },
+    {
+        _id: '6',
+        name: 'Maglietta nera semplice',
+        category:'Vestiti',
+        image: './images/a2.jpg',
+        price: 20,
+        brand: 'Guddi',
+        rating: 5,
+        numReiews: 22,
+        countInStock: 10
+    },
+    {
+        _id: '7',
+        name: 'Maglietta nera semplice',
+        category:'Vestiti',
+        image: './images/a3.jpg',
+        price: 20,
+        brand: 'Guddi',
+        rating: 5,
+        numReiews: 22,
+        countInStock: 10
+    },
+    {
+        _id: '8',
+        name: 'Maglietta nera semplice',
+        category:'Vestiti',
+        image: './images/a4.jpg',
+        price: 20,
+        brand: 'Guddi',
+        rating: 5,
+        numReiews: 22,
+        countInStock: 10
+    },
 
 ]
 }

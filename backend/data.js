@@ -6,7 +6,7 @@ export default {
         category: 'clothing',
         image: './images/a1.jpg',
         price: 50,
-        brand: 'Mike',
+        brand: 'Zara',
         rating: 4.5,
         numReiews: 10
     },

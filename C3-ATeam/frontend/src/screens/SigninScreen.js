@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { signin } from '../actions/userAction';
+import {signin} from '../actions/userAction';
 import Axios from 'axios'; 
 
 function SigninScreen(props) {
@@ -30,11 +30,8 @@ function SigninScreen(props) {
           password : password
       }
       await Axios.post("/api/users/signin", usr);
-    
   }
-
   fetchData();
-
   }
   return <div className="form">
     <form onSubmit={submitHandler} >
