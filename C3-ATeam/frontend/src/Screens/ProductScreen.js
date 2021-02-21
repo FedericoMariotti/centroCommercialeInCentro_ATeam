@@ -8,7 +8,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { detailsProduct, saveProductReview } from '../actions/productAction';
+import { detailsProduct } from '../actions/productAction';
 
 
 function ProductScreen (props){

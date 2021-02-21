@@ -5,8 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import Axios from 'axios'; 
 import { listProducts } from '../actions/productAction';
 
-
-
 function HomeScreen (props){
 const productList = useSelector(state => state.productList);
 const { product, loading, error} = productList;
@@ -27,6 +25,7 @@ useEffect (() => {
 
     return loading? <div>Loading...</div>:
     error? <div>{error}</div>:
+    
     
     <ul className="products">
                   {

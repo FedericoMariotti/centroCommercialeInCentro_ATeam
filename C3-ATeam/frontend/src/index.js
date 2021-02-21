@@ -10,3 +10,16 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,document.getElementById('root'));
+
+class BarraRicerca extends React.Component {
+  render() {
+    return (
+      <form>
+        <input type="text" placeholder="Cerca..." />
+        <p>
+          <input type="checkbox" /> Mostra solo disponibili
+        </p>
+      </form>
+    );
+  }
+}

@@ -6,11 +6,12 @@ import config from './config';
 import userRoute from './routes/userRoute';
 import productRoute from './routes/productRoute';
 import dotenv from 'dotenv';
+import uploadRoute from './routes/uploadRoute';
 //import data from 'data';
 dotenv.config();
 
 const mongodbUrl = config.MONGODB_URL;
-const port = config.PORT;
+//const port = config.PORT;
 mongoose.connect(mongodbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -21,9 +22,10 @@ mongoose.connect(mongodbUrl, {
 const app = express();
 
 app.use(bodyParser.json());
-//app.use('./api/uploads', uploadRoute);
-app.use('/api/products', productRoute);
+app.use('/api/uploads', uploadRoute);
 app.use("/api/users", userRoute);
+app.use('/api/products', productRoute);
+
 
 app.get("/api/products/:id", (req, res)=> {
     const productId = req.params.id;
@@ -31,7 +33,7 @@ app.get("/api/products/:id", (req, res)=> {
     if(product)
     res.send(product);
     else 
-    res.status(404).send({ msg: "Scusa frate, non trovo il prodotto che cerchi :("})
+    res.status(404).send({ msg: "Scusa, non trovo il prodotto che cerchi :("})
 } );
 
 app.get("/api/products", (req, res)=> {

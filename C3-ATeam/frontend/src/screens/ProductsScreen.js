@@ -145,14 +145,14 @@ function ProductsScreen(props) {
                   </tr>
               </thead>
               <tbody>
-                  {products.map((product) => ( 
+              {products.map((product) => (
                   <tr key={product._id}>
-                      <td>{product._id}</td>
-                      <td>{product.name}</td>
-                      <td>{product.price}</td>
-                      <td>{product.category}</td>
-                      <td>{product.brand}</td>
-                      <td>
+                   <td>{product._id}</td>
+                   <td>{product.name}</td>
+                   <td>{product.price}</td>
+                   <td>{product.category}</td>
+                   <td>{product.brand}</td>
+                   <td>
                           <button className="button" onClick={() => openModal(product)}>Modifica</button>
                           {' '}
                           <button className="button" onClick={() => deleteHandler(product)}>Elimina</button>
