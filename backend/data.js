@@ -1,42 +1,95 @@
-export default {
-    products: [
-        {
-        _id: '1',
-        name: 'Maglietta nera palma',
-        category: 'clothing',
-        image: './images/a1.jpg',
-        price: 50,
-        brand: 'Zara',
-        rating: 4.5,
-        numReiews: 10
-    },
-    {
-        _id: '2',
-        name: 'Maglietta nera rondine',
-        image: './images/a2.jpg',
-        price: 40,
-        brand: 'Abibas',
-        rating: 4.0,
-        numReiews: 13
-    },
-    {
-        _id: '3',
-        name: 'Canotta nera rondine',
-        image: './images/a3.jpg',
-        price: 35,
-        brand: 'Lacaste',
-        rating: 4.5,
-        numReiews: 8
-    },
-    {
-        _id: '4',
-        name: 'Maglietta nera semplice',
-        image: './images/a4.jpg',
-        price: 20,
-        brand: 'Guddi',
-        rating: 5,
-        numReiews: 22
-    },
+import bcrypt from 'bcryptjs';
 
-]
-}
+const data = {
+  users: [
+    {
+      name: 'Federico',
+      email: 'federico.mariotti@studenti.unicam.it',
+      password: bcrypt.hashSync('1234', 8),
+      isAdmin: true,
+      isSeller: true,
+      seller: {
+        name: 'Federico',
+        logo: '/images/logo1.png',
+        description: 'Best seller',
+        rating: 4.5,
+        numReviews: 120,
+      },
+    },
+    {
+      name: 'Giovanni',
+      email: 'user@example.com',
+      password: bcrypt.hashSync('1234', 8),
+      isAdmin: false,
+    },
+  ],
+  products: [
+    {
+      name: 'Maglietta Nike',
+      category: 'Maglie',
+      image: '/images/p1.jpg',
+      price: 120,
+      countInStock: 10,
+      brand: 'Nike',
+      rating: 4.5,
+      numReviews: 10,
+      description: 'test',
+    },
+    {
+      name: 'Adidas',
+      category: 'Maglie',
+      image: '/images/p2.jpg',
+      price: 100,
+      countInStock: 20,
+      brand: 'Zara',
+      rating: 4.0,
+      numReviews: 10,
+      description: 'test1',
+    },
+    {
+      name: 'Lacoste',
+      category: 'Maglie',
+      image: '/images/p3.jpg',
+      price: 220,
+      countInStock: 0,
+      brand: 'Lacoste',
+      rating: 4.8,
+      numReviews: 17,
+      description: 'test2',
+    },
+    {
+      name: 'Pantaloni Nike',
+      category: 'Pantaloni',
+      image: '/images/p4.jpg',
+      price: 78,
+      countInStock: 15,
+      brand: 'H&M',
+      rating: 4.5,
+      numReviews: 14,
+      description: 'test3',
+    },
+    {
+      name: 'Puma Slim',
+      category: 'Pantaloni',
+      image: '/images/p5.jpg',
+      price: 65,
+      countInStock: 5,
+      brand: 'Benetton',
+      rating: 4.5,
+      numReviews: 10,
+      description: 'test4',
+    },
+    {
+      name: 'Adidas',
+      category: 'Pantaloni',
+      image: '/images/p6.jpg',
+      price: 139,
+      countInStock: 12,
+      brand: 'Terranova',
+      rating: 4.5,
+      numReviews: 15,
+      description: 'htest5',
+    },
+  ],
+};
+export default data;
