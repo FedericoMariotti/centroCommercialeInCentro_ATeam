@@ -33,7 +33,7 @@ footer {
   background-color: #203040;
   color: #ffffff;
 }
-/* Common */
+/* --- */
 h1 {
   font-size: 1.8rem;
   padding: 1rem 0;
@@ -68,7 +68,7 @@ a.brand {
 .row.center {
   justify-content: center;
 }
-/* Image */
+/* Immagine */
 img {
   border-radius: 0.5rem;
 }
@@ -77,7 +77,7 @@ img.medium {
   width: 100%;
 }
 
-/* Card */
+/* Riepilogo */
 .card {
   border: 0.1rem #c0c0c0 solid;
   background-color: #f8f8f8;
